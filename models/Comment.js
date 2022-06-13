@@ -1,14 +1,14 @@
-const sequelize = require('../config/connection');
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Comment extends Model{}
+class Comment extends Model {}
 
 Comment.init({
     id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: UUIDV4,
         primaryKey: true,
+        autoIncrement: true,
      },
      comment_body: {
          type: DataTypes.TEXT,
@@ -21,7 +21,10 @@ Comment.init({
      freezeTableName: false,
      underscored: false,
      modelName: 'comment',
-    
 });
+
+
+
+
 
 module.exports = Comment;
